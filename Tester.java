@@ -4,7 +4,7 @@ public class Tester{
   public static void main(String[] args){
     int[] arr={4,4,6,9};
     int[] arr1={1,3,5,7,8,42};
-    int[][] arr2={{1,4,5,9},{9,0,2,1,0},{7,1,0,0}};
+    int[][] arr2={{1,4,5,9},{9,0,2,1},{7,1,0,0}};
     int[][] arr3={{31,5,52,3},{2,4,6,7},{7,7,7,7,8},{1,1,3,5,4},{2}};
     System.out.println(ArrayOps.sum(arr1)); //returns 66
     System.out.println(ArrayOps.sum(arr));  //returns 23
@@ -16,5 +16,6 @@ public class Tester{
     System.out.println(Arrays.toString(ArrayOps.largestInRows(arr3)));  //returns [52,7,8,5,2]
     System.out.println(ArrayOps.sum(arr2)); //returns 39
     System.out.println(ArrayOps.sum(arr3)); //returns 162
+    System.out.println(Arrays.toString(ArrayOps.sumCols(arr2)));
   }
 }
