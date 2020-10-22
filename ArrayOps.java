@@ -48,24 +48,19 @@ public class ArrayOps{
   }
   public static boolean sameArray(int[][]matrix,int[]arr){
     int count=0;
-    if (matrix.length!=matrix[0].length){
-      return false;
-    }
-    else{
-      for (int i=0;i<matrix.length-1;i++){
-        if (arr[i]!=arr[i+1]){
-          return false;
-        }
-        if (arr[i]==arr[i+1]){
-          count+=1;
-        }
-      }
-      if (count==matrix.length-1){
-        return true;
-      }
-      else{
+    for (int i=0;i<matrix.length-1;i++){
+      if (arr[i]!=arr[i+1]){
         return false;
       }
+      if (arr[i]==arr[i+1]){
+        count+=1;
+      }
+    }
+    if (count==matrix.length-1){
+      return true;
+    }
+    else{
+      return false;
     }
   }
   public static boolean isRowMagic(int[][] matrix){
@@ -75,5 +70,16 @@ public class ArrayOps{
   public static boolean isColMagic(int[][] matrix){
     int[] arr=ArrayOps.sumCols(matrix);
     return ArrayOps.sameArray(matrix,arr);
+  }
+  public static boolean isLocationMagic(int[][] matrix, int row, int col){
+    int sumrow=ArrayOps.sum(matrix[row]);
+    int[] cols=ArrayOps.sumCols(matrix);
+    int sumcol=cols[col];
+    if (sumrow==sumcol){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }
