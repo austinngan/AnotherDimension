@@ -36,8 +36,13 @@ public class ArrayOps{
   }
   public static int[] sumCols(int[][] matrix){
     int sum=0;
-    int[] finalarr=new int[matrix.length];
-    for (int z=0;z<matrix.length;z++){
+    int len=matrix.length-1;
+    int[] blankarr={};
+    int[] finalarr=new int[matrix[0].length];
+    if (ArrayOps.isRectangle(matrix)==false){
+      return blankarr;
+    }
+    for (int z=0;z<matrix[0].length;z++){
       sum=0;
       for (int i=0;i<matrix.length;i++){
         sum+=matrix[i][z];
@@ -46,21 +51,44 @@ public class ArrayOps{
     }
     return finalarr;
   }
-  public static boolean sameArray(int[][]matrix,int[]arr){
-    int count=0;
-    for (int i=0;i<matrix.length-1;i++){
-      if (arr[i]!=arr[i+1]){
+  public static boolean isRectangle(int[][]matrix){
+    int rectcount=0;
+    int[] finalarr=new int[matrix.length];
+    for (int a=0;a<matrix.length-1;a++){
+      if (matrix[a].length!=matrix[a+1].length){
         return false;
       }
-      if (arr[i]==arr[i+1]){
-        count+=1;
+      if (matrix[a].length==matrix[a+1].length){
+        rectcount+=1;
       }
     }
-    if (count==matrix.length-1){
+    if (rectcount==matrix.length-1){
       return true;
     }
     else{
       return false;
+    }
+  }
+  public static boolean sameArray(int[][]matrix,int[]arr){
+    int count=0;
+    if (ArrayOps.isRectangle(matrix)==false){
+      return false;
+    }
+    else{
+      for (int i=0;i<matrix.length-1;i++){
+        if (arr[i]!=arr[i+1]){
+          return false;
+        }
+        if (arr[i]==arr[i+1]){
+          count+=1;
+        }
+      }
+      if (count==matrix.length-1){
+        return true;
+      }
+      else{
+        return false;
+      }
     }
   }
   public static boolean isRowMagic(int[][] matrix){
