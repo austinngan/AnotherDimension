@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ArrayOps{
   public static int sum(int[] arr){
     int sum=0;
@@ -12,5 +14,12 @@ public class ArrayOps{
       max=Math.max(max,arr[i]);
     }
     return max;
+  }
+  public static int[] sumRows(int[][] matrix){
+    int[] finalarr=new int[matrix.length];
+    for (int i=0;i<matrix.length;i++){
+      finalarr[i]=ArrayOps.sum(matrix[i]);
+    }
+    return finalarr;
   }
 }
