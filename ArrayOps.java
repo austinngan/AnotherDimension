@@ -73,7 +73,7 @@ public class ArrayOps{
     return ArrayOps.sameArray(matrix,arr2);
   }
   public static boolean isColMagic(int[][] matrix){
-    int[] arr2=ArrayOps.sumCols(matrix);
-    return ArrayOps.sameArray(matrix,arr2);
+    int[] arr=ArrayOps.sumCols(matrix);
+    return ArrayOps.sameArray(matrix,arr);
   }
 }
