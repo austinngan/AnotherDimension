@@ -46,4 +46,27 @@ public class ArrayOps{
     }
     return finalarr;
   }
+  public static boolean isRowMagic(int[][] matrix){
+    int[] arr2=ArrayOps.sumRows(matrix);
+    int count=0;
+    if (matrix.length!=matrix[0].length){
+      return false;
+    }
+    else{
+      for (int i=0;i<matrix.length-1;i++){
+        if (arr2[i]!=arr2[i+1]){
+          return false;
+        }
+        if (arr2[i]==arr2[i+1]){
+          count+=1;
+        }
+      }
+      if (count==matrix.length-1){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+  }
 }
