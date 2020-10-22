@@ -19,5 +19,6 @@ public class Tester{
     System.out.println(ArrayOps.sum(arr3)); //returns 162
     System.out.println(Arrays.toString(ArrayOps.sumCols(arr2)));
     System.out.println(ArrayOps.isRowMagic(samearr));
+    System.out.println(ArrayOps.isColMagic(samearr));
   }
 }
