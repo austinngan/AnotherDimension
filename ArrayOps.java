@@ -71,12 +71,12 @@ public class ArrayOps{
   }
   public static boolean sameArray(int[][]matrix,int[]arr){
     int count=0;
-    int len=matrix[1].length;
+    int len=arr.length;
     if (ArrayOps.isRectangle(matrix)==false){
       return false;
     }
     else{
-      for (int i=0;i<len-2;i++){
+      for (int i=0;i<len-1;i++){
         if (arr[i]!=arr[i+1]){
           return false;
         }
@@ -84,7 +84,7 @@ public class ArrayOps{
           count+=1;
         }
       }
-      if (count==len-2){
+      if (count==len-1){
         return true;
       }
       else{
